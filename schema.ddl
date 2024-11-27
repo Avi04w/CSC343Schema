@@ -25,6 +25,8 @@
 -- Assumptions:
 	- There will be no ground crew for flights that are ARRIVING at a gate
 	- Passengers can only have a citizenship for one country
+	- The only two possible types of passengers are 'elite' and 'regular'
+	- Each plane needs at least 1 crew member to fly
 
 
 DROP SCHEMA IF EXISTS A3Airport CASCADE;
@@ -59,8 +61,8 @@ CREATE TABLE Passenger (
 	pass_id INT PRIMARY KEY,
 	full_name VARCHAR(100) NOT NULL,
 	citizenship VARCHAR(30) NOT NULL,
-	age INT NOT NULL,
-	status VARCHAR(30) NOT NULL
+	age INT NOT NULL CHECK (age >= 0),
+	status VARCHAR(30) NOT NULL CHECK (status IN ('elite', 'regular))
 );
 
 -- A gate with unique identifier <g_id>, stationed at airport referenced by <a_id>
@@ -103,7 +105,7 @@ CREATE TABLE Flight (
 	air_id INT REFERENCES Airline(air_id),
 	r_id INT REFERENCES Route(r_id),
 	p_id INT REFERENCES Plane(p_id),
-	crew_num INT NOT NULL,
+	crew_num INT NOT NULL CHECK (crew_num >= 1),
 	day DATE NOT NULL,
 	departure_time TIME NOT NULL,
 	arrival_time TIME NOT NULL
