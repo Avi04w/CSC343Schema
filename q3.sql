@@ -1,3 +1,7 @@
+DROP VIEW IF EXISTS CountryRoutes CASCADE;
+DROP VIEW IF EXISTS GlobalAverage CASCADE;
+DROP VIEW IF EXISTS FilteredRoutes CASCADE;
+
 CREATE VIEW CountryRoutes AS 
     SELECT r.r_id, a1.country AS departure_country, a2.country AS arrival_country, AVERAGE(COUNT(v.pass_id)) AS avg_visa_passengers
     FROM Flight f JOIN Route r ON f.r_id = r.r_id

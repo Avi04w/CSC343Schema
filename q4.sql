@@ -1,3 +1,5 @@
+DROP VIEW IF EXISTS Pairings CASCADE;
+
 CREATE VIEW Pairings AS
 	SELECT air.name AS airline, p.p_id, c.name AS fullname, COUNT(*)
 	FROM Airline air JOIN Plane p ON air.air_id = p.air_id

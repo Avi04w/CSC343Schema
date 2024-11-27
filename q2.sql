@@ -1,3 +1,6 @@
+DROP VIEW IF EXISTS RouteFrequency CASCADE;
+
+
 CREATE VIEW RouteFrequency AS 
     SELECT p.name, r.r_id, COUNT(*) AS count
     FROM Flight f JOIN Route r ON f.r_id = r.r_id
