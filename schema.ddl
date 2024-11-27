@@ -21,12 +21,13 @@
 
 -- Extra constraints:
 	- All tickets start as "standby" tickets, and then the tickets that "guarantee" a spot on the plane will appear in the ScheduledFlight table, so "standby" tickets are those who appear in the Ticket table but not the ScheduledFlight table
+	- Each plane needs at least 1 crew member to fly
+	- The only two possible types of passengers are 'elite' and 'regular'
 
 -- Assumptions:
 	- There will be no ground crew for flights that are ARRIVING at a gate
 	- Passengers can only have a citizenship for one country
-	- The only two possible types of passengers are 'elite' and 'regular'
-	- Each plane needs at least 1 crew member to fly
+	- Seat number does not exceed the plane's capacity
 
 
 DROP SCHEMA IF EXISTS A3Airport CASCADE;
