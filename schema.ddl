@@ -63,7 +63,7 @@ CREATE TABLE Passenger (
 	full_name VARCHAR(100) NOT NULL,
 	citizenship VARCHAR(30) NOT NULL,
 	age INT NOT NULL CHECK (age >= 0),
-	status VARCHAR(30) NOT NULL CHECK (status IN ('elite', 'regular))
+	status VARCHAR(30) NOT NULL CHECK (status IN ('elite', 'regular'))
 );
 
 -- A gate with unique identifier <g_id>, stationed at airport referenced by <a_id>
