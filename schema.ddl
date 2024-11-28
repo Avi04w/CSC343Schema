@@ -66,9 +66,10 @@ CREATE TABLE Passenger (
 	status VARCHAR(30) NOT NULL CHECK (status IN ('elite', 'regular'))
 );
 
--- A gate with unique identifier <g_id>, stationed at airport referenced by <a_id>
+-- A gate with unique identifier <g_id>, called <name> stationed at airport referenced by <a_id>
 CREATE TABLE Gate (
 	g_id INT PRIMARY KEY,
+	name VARCHAR(30) NOT NULL,
 	a_id INT REFERENCES Airport(a_id)
 );
 
