@@ -1,5 +1,6 @@
 -- CSC343 Assignment 3 Schema - Richard Guo, Avi Walia
 
+/* 
 -- Could not:
 
 	NOTE: All "could not" constraints have the functionality to be enforced, but require triggers/assertions to do so.
@@ -28,7 +29,7 @@
 	- There will be no ground crew for flights that are ARRIVING at a gate
 	- Passengers can only have a citizenship for one country
 	- Seat number does not exceed the plane's capacity
-
+*/
 
 DROP SCHEMA IF EXISTS A3Airport CASCADE;
 CREATE SCHEMA A3Airport;
@@ -125,7 +126,7 @@ CREATE TABLE ScheduledCrew (
 CREATE TABLE Ticket (
 	t_id INT PRIMARY KEY,
 	pass_id INT REFERENCES Passenger(pass_id),
-	r_id INT REFERENCES Route(r_id),
+	r_id INT REFERENCES Route(r_id)
 );
 
 -- A ticket (and passenger) referenced by <t_id> for a  flight referenced by <f_id> with <num_baggage> bags that cannot total 2 bags for regular passengers and 4 bags for elite passengers, and whose total weight <total_weight> cannot exceed 50 kg for regular passengers and 100 kg for elite passengers, boarding on gate referenced by <g_id>. Boarding zone is <zone> and assigned seating is <seat_number>
