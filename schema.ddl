@@ -149,10 +149,10 @@ CREATE TABLE ScheduledGate (
 	c_id INT REFERENCES Crew(c_id)
 );
 
--- The booking with unique identifier  <b_id> and booked by someone with the name <booked_by>
+-- The booking with unique identifier  <b_id> and booked by the passenger referenced by <pass_id>
 CREATE TABLE Booking (
 	b_id INT PRIMARY KEY,
-	booked_by VARCHAR(30) NOT NULL
+	booked_by INT REFERENCES Passenger(pass_id)
 );
 
 -- The booking referenced by <b_id> for the passenger referenced by <pass_id>
