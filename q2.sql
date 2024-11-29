@@ -1,5 +1,5 @@
 DROP VIEW IF EXISTS RouteFrequency CASCADE;
-
+DROP VIEW IF EXISTS MaxRoutes CASCADE;
 
 CREATE VIEW RouteFrequency AS 
     SELECT p.name, r.r_id, COUNT(*) AS count
