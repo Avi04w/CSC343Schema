@@ -1,26 +1,24 @@
 -- Q1
 
-DROP VIEW IF EXISTS Arrivals CASCADE;
-DROP VIEW IF EXISTS Departures CASCADE;
+DROP VIEW IF EXISTS Traffic CASCADE;
 
-CREATE VIEW Departures AS
-SELECT a1.a_id, a1.name, COUNT(t.pass_id)
-FROM Flight f JOIN Route r ON f.f_id = r.r_id
-JOIN Airport a1 ON a1.a_id = r.departure_airport
+CREATE VIEW Traffic AS
+(SELECT a.a_id, a.name, COUNT(t.pass_id) -- Departure airport
+FROM Flight f JOIN Route r ON f.r_id = r.r_id
+JOIN Airport a ON a.a_id = r.departure_airport
 JOIN ScheduledFlight sf ON f.f_id = sf.f_id
 JOIN Ticket t ON sf.t_id = t.t_id
 WHERE EXTRACT(YEAR FROM f.day) = 2023
-GROUP BY a1.a_id, a1.name;
-
-CREATE VIEW Arrivals AS 
-SELECT a2.a_id, a2.name, COUNT(t.pass_id)
-FROM Flight f JOIN Route r ON f.f_id = r.r_id
-JOIN Airport a2 ON a2.a_id = r.arrival_airport
+GROUP BY a.a_id, a.name)
+UNION ALL
+(SELECT a.a_id, a.name, COUNT(t.pass_id) -- Arrival airport
+FROM Flight f JOIN Route r ON f.r_id = r.r_id
+JOIN Airport a ON a.a_id = r.arrival_airport
 JOIN ScheduledFlight sf ON f.f_id = sf.f_id
 JOIN Ticket t ON sf.t_id = t.t_id
 WHERE EXTRACT (YEAR FROM f.day) = 2023
-GROUP BY a2.a_id, a2.name;
+GROUP BY a.a_id, a.name);
 
-SELECT a_id, name, SUM(count)
-FROM Departures UNION ALL Arrivals
-GROUP BY a_id, name;
+SELECT a.a_id AS a_id, a.name AS airport_name, COALESCE(SUM(count), 0) AS total_passengers
+FROM Airport a LEFT JOIN Traffic t ON t.a_id = a.a_id AND t.name = a.name
+GROUP BY a.a_id, a.name;
