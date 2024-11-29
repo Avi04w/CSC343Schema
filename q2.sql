@@ -7,7 +7,7 @@ CREATE VIEW RouteFrequency AS
     JOIN ScheduledFlight sf ON f.f_id = sf.f_id
     JOIN Ticket t ON t.f_id = sf.f_id
     JOIN Passenger p ON t.pass_id = p.pass_id
-    WHERE YEAR(f.day) = 2023
+    WHERE EXTRACT (YEAR FROM f.day) = 2023
     GROUP BY p.name, f.r_id
 ;
 
