@@ -11,10 +11,10 @@ CREATE VIEW RouteFrequency AS
     GROUP BY p.name, f.r_id
 ;
 
-CREATE VIEW MaxTrips AS 
-	SELECT MAX(count) AS max_trip_count 
-    FROM RouteFrequency
-;
+CREATE VIEW MaxRoutes AS
+SELECT r_id, MAX(count) AS max
+FROM RouteFrequency
+GROUP BY r_id;
 
 SELECT rf.name, rf.r_id, rf.count
-FROM RouteFrequency rf INNER JOIN MaxTrips mt ON rf.count = mt.max_trip_count;
+FROM RouteFrequency rf JOIN MaxRoutes mr ON rf.r_id = mr.r_id AND rf.count = mr.max;
