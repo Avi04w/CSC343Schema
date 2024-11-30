@@ -118,8 +118,8 @@ CREATE TABLE Flight (
 -- Flight crew cannot work for more than 14 hours of each 24 hour period
 -- Flight crew must be certified on the type of plane they are working on
 CREATE TABLE ScheduledCrew (
-	c_id INT REFERENCES Crew(c_id),
-	f_id INT REFERENCES Flight(f_id)
+	f_id INT REFERENCES Flight(f_id),
+	c_id INT REFERENCES Crew(c_id)
 );
 
 -- The ticket with unique identifier <t_id> for the passenger referenced by <pass_id> flying on route <r_id>. All tickets are for standby until they appear in ScheduledFlight
