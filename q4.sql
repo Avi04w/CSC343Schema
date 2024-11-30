@@ -7,7 +7,7 @@ CREATE VIEW Pairings AS
 	JOIN ScheduledCrew sc ON sc.f_id = f.f_id
 	JOIN Crew c ON sc.c_id = c.c_id
 	JOIN ScheduledGate sg ON f.f_id = sg.f_id
-	WHERE YEAR(f.day) = 2023
+	WHERE EXTRACT (YEAR FROM f.day) = 2023
 	GROUP BY air.name, p.p_id, c.name
 ;
 
