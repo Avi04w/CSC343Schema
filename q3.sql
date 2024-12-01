@@ -4,7 +4,7 @@ DROP VIEW IF EXISTS GlobalAverage CASCADE;
 
 
 CREATE VIEW PairAverages AS (
-	SELECT a1.country AS country1, a2.country AS c2, COUNT(p.pass_id) / COUNT(f.f_id) AS avg
+	SELECT a1.country AS c1, a2.country AS c2, COUNT(p.pass_id) / COUNT(f.f_id) AS avg
 	FROM Flight f JOIN Route r ON f.r_id = f.r_id
 	JOIN Airport a1 ON r.departure_airport = a1.a_id
 	JOIN Airport a2 ON r.arrival_airport = a2.a_id
