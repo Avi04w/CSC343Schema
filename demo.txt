@@ -1,0 +1,131 @@
+csc343h-waliaavi=> \i runner.txt 
+-------------------- Loading schema and data: --------------------
+
+psql:schema.ddl:34: NOTICE:  drop cascades to 24 other objects
+DETAIL:  drop cascades to table a3airport.airport
+drop cascades to table a3airport.airline
+drop cascades to table a3airport.plane
+drop cascades to table a3airport.passenger
+drop cascades to table a3airport.gate
+drop cascades to table a3airport.visas
+drop cascades to table a3airport.crew
+drop cascades to table a3airport.crewcertifications
+drop cascades to table a3airport.route
+drop cascades to table a3airport.flight
+drop cascades to table a3airport.scheduledcrew
+drop cascades to table a3airport.ticket
+drop cascades to table a3airport.scheduledflight
+drop cascades to table a3airport.scheduledgate
+drop cascades to table a3airport.booking
+drop cascades to table a3airport.bookedpassengers
+drop cascades to view a3airport.traffic
+drop cascades to view a3airport.routefrequency
+drop cascades to view a3airport.maxroutes
+drop cascades to view a3airport.pairaverages
+drop cascades to view a3airport.globalaverage
+drop cascades to view a3airport.flightpairings
+drop cascades to view a3airport.gatepairings
+drop cascades to view a3airport.pairings
+DROP SCHEMA
+CREATE SCHEMA
+SET
+CREATE TABLE
+CREATE TABLE
+CREATE TABLE
+CREATE TABLE
+CREATE TABLE
+CREATE TABLE
+CREATE TABLE
+CREATE TABLE
+CREATE TABLE
+CREATE TABLE
+CREATE TABLE
+CREATE TABLE
+CREATE TABLE
+CREATE TABLE
+CREATE TABLE
+CREATE TABLE
+INSERT 0 5
+INSERT 0 1
+INSERT 0 4
+INSERT 0 31
+INSERT 0 5
+INSERT 0 44
+INSERT 0 8
+INSERT 0 11
+INSERT 0 6
+INSERT 0 25
+INSERT 0 50
+INSERT 0 74
+INSERT 0 74
+INSERT 0 25
+INSERT 0 25
+INSERT 0 74
+
+-------------------- Query 1: -----------------------------------
+
+psql:q1.sql:3: NOTICE:  view "traffic" does not exist, skipping
+DROP VIEW
+CREATE VIEW
+ a_id | airport_name | total_passengers 
+------+--------------+------------------
+    5 | Airport E    |                0
+    4 | Airport D    |                1
+    2 | Airport B    |               53
+    1 | Airport A    |               41
+    3 | Airport C    |               49
+(5 rows)
+
+
+-------------------- Query 2: -----------------------------------
+
+psql:q2.sql:1: NOTICE:  view "routefrequency" does not exist, skipping
+DROP VIEW
+psql:q2.sql:2: NOTICE:  view "maxroutes" does not exist, skipping
+DROP VIEW
+CREATE VIEW
+CREATE VIEW
+  full_name  | r_id | count 
+-------------+------+-------
+ Passenger 1 |    1 |     2
+ Passenger 2 |    1 |     2
+ Passenger 1 |    2 |     2
+ Passenger 1 |    3 |     9
+ Passenger X |    4 |     1
+ Passenger 1 |    5 |     9
+(6 rows)
+
+
+-------------------- Query 3: -----------------------------------
+
+psql:q3.sql:2: NOTICE:  view "pairaverages" does not exist, skipping
+DROP VIEW
+psql:q3.sql:3: NOTICE:  view "globalaverage" does not exist, skipping
+DROP VIEW
+CREATE VIEW
+CREATE VIEW
+    c1     |    c2     | avg 
+-----------+-----------+-----
+ Country A | Country C |   1
+ Country C | Country A |   1
+ Country D | Country A |   1
+(3 rows)
+
+
+-------------------- Query 4: -----------------------------------
+
+psql:q4.sql:1: NOTICE:  view "pairings" does not exist, skipping
+DROP VIEW
+psql:q4.sql:2: NOTICE:  view "flightpairings" does not exist, skipping
+DROP VIEW
+psql:q4.sql:3: NOTICE:  view "gatepairings" does not exist, skipping
+DROP VIEW
+CREATE VIEW
+CREATE VIEW
+CREATE VIEW
+  airline  | p_id | fullname | count 
+-----------+------+----------+-------
+ Airline A |    4 | Crew 5   |    21
+ Airline A |    4 | Crew 6   |    21
+ Airline A |    4 | Crew 1   |    10
+(3 rows)
