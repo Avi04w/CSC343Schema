@@ -4,7 +4,8 @@ VALUES
 (1, 'Airport A', 'City A', 'Country A'),
 (2, 'Airport B', 'City B', 'Country B'),
 (3, 'Airport C', 'City C', 'Country C'),
-(4, 'Airport D', 'City D', 'Country D');
+(4, 'Airport D', 'City D', 'Country D'),
+(5, 'Airport E', 'City E', 'Country E');
 
 -- Insert airline information into Airline table
 INSERT INTO Airline (air_id, name)
@@ -19,7 +20,7 @@ VALUES
 (3, 'Certification B', 5, 1),
 (4, 'Certification A', 10, 1);
 
--- Insert 50 passengers into the Passenger table
+-- Insert passengers into the Passenger table
 INSERT INTO Passenger (pass_id, full_name, citizenship, age, status)
 VALUES
 (1, 'Passenger 1', 'Country D', 25, 'regular'),
@@ -52,26 +53,7 @@ VALUES
 (28, 'Passenger 28', 'Country A', 29, 'regular'),
 (29, 'Passenger 29', 'Country A', 21, 'regular'),
 (30, 'Passenger 30', 'Country C', 34, 'regular'),
--- (31, 'Passenger 31', 'Country B', 22, 'regular'),
--- (32, 'Passenger 32', 'Country C', 28, 'regular'),
--- (33, 'Passenger 33', 'Country A', 24, 'regular'),
--- (34, 'Passenger 34', 'Country A', 27, 'regular'),
--- (35, 'Passenger 35', 'Country A', 25, 'regular'),
--- (36, 'Passenger 36', 'Country B', 29, 'regular'),
--- (37, 'Passenger 37', 'Country C', 23, 'regular'),
--- (38, 'Passenger 38', 'Country B', 30, 'regular'),
--- (39, 'Passenger 39', 'Country A', 26, 'regular'),
--- (40, 'Passenger 40', 'Country A', 29, 'regular'),
--- (41, 'Passenger 41', 'Country C', 28, 'regular'),
--- (42, 'Passenger 42', 'Country B', 22, 'regular'),
--- (43, 'Passenger 43', 'Country A', 5, 'regular'),
--- (44, 'Passenger 44', 'Country A', 25, 'regular'),
--- (45, 'Passenger 45', 'Country C', 30, 'regular'),
--- (46, 'Passenger 46', 'Country B', 31, 'regular'),
--- (47, 'Passenger 47', 'Country A', 24, 'regular'),
--- (48, 'Passenger 48', 'Country C', 33, 'regular'),
--- (49, 'Passenger 49', 'Country A', 25, 'regular'),
-(50, 'Passenger X', 'Country D', 26, 'regular');
+(31, 'Passenger X', 'Country D', 26, 'regular');
 
 -- Insert gate information into Gate table
 INSERT INTO Gate (g_id, gate_name, a_id)
@@ -79,14 +61,15 @@ VALUES
 (1, 'Gate 1', 1), 
 (2, 'Gate 1', 2), 
 (3, 'Gate 1', 3),
-(4, 'Gate 1', 4);
+(4, 'Gate 1', 4),
+(5, 'Gate 5', 5);
 
 -- Insert visa information into Visas table
 INSERT INTO Visas (pass_id, visa)
 VALUES
-(50, 'Country A'),
-(50, 'Country B'),
-(50, 'Country C'),
+(31, 'Country A'),
+(31, 'Country B'),
+(31, 'Country C'),
 (1, 'Country A'),
 (1, 'Country B'),
 (1, 'Country C'),
@@ -139,7 +122,8 @@ VALUES
 (4, 'Crew 4', 40),
 (5, 'Crew 5', 40),
 (6, 'Crew 6', 42),
-(7, 'Crew 7', 40);
+(7, 'Crew 7', 40),
+(8, 'Crew 8', 45);
 
 -- Insert crew certifications into CrewCertifications table
 INSERT INTO CrewCertifications (c_id, certification)
@@ -153,7 +137,8 @@ VALUES
 (7, 'Certification A'),
 (5, 'Certification B'),
 (6, 'Certification B'),
-(7, 'Certification B');
+(7, 'Certification B'),
+(8, 'Ground Crew');
 
 -- Insert route information into Route table
 INSERT INTO Route (r_id, departure_airport, arrival_airport)
@@ -162,7 +147,8 @@ VALUES
 (2, 2, 3),
 (3, 3, 1),
 (4, 4, 1),
-(5, 1, 3);
+(5, 1, 3),
+(6, 1, 5);
 
 -- Insert flight information into Flight table
 Insert into Flight (f_id, air_id, r_id, p_id, crew_num, day, departure_time, arrival_time)
@@ -190,7 +176,8 @@ VALUES
 (21, 1, 3, 4, 2, '2023-03-11', '10:00:00', '14:00:00'),
 (22, 1, 5, 4, 2, '2023-03-12', '10:00:00', '14:00:00'),
 (23, 1, 3, 4, 2, '2023-03-5', '10:00:00', '14:00:00'),
-(24, 1, 5, 4, 2, '2023-03-6', '10:00:00', '14:00:00');
+(24, 1, 5, 4, 2, '2023-03-6', '10:00:00', '14:00:00'),
+(25, 1, 6, 3, 1, '2024-03-23', '10:30:00', '14:40:00');
 
 
 -- Insert scheduled crew information into ScheduledCrew table
@@ -244,12 +231,13 @@ VALUES
 (23, 5),
 (23, 6),
 (24, 5),
-(24, 6);
+(24, 6),
+(25, 5);
 
 -- Insert ticket information into Ticket table
 INSERT INTO Ticket (t_id, pass_id, r_id)
 VALUES
-(1, 50, 4),
+(1, 31, 4),
 (2, 1, 1),
 (3, 2, 1),
 (4, 3, 1),
@@ -300,7 +288,7 @@ VALUES
 (49, 28, 3),
 (50, 29, 3),
 (51, 30, 3),
-(52, 50, 4),
+(52, 31, 4),
 (53, 1, 1),
 (54, 2, 1),
 (55, 1, 2),
@@ -321,7 +309,8 @@ VALUES
 (70, 1, 3),
 (71, 1, 5),
 (72, 1, 3),
-(73, 1, 5);
+(73, 1, 5),
+(74, 31, 6);
 
 
 -- Insert scheduled flight information into ScheduledFlight table
@@ -399,7 +388,8 @@ VALUES
 (21, 70, 1, 2, 1, 20, 3),
 (22, 71, 1, 2, 1, 20, 1),
 (23, 72, 1, 2, 1, 20, 3),
-(24, 73, 1, 2, 1, 20, 1);
+(24, 73, 1, 2, 1, 20, 1),
+(25, 74, 1, 2, 1, 30, 1);
 
 -- Insert scheduled gate information into ScheduledGate table
 INSERT INTO ScheduledGate (a_id, g_id, f_id, c_id)
@@ -427,15 +417,16 @@ VALUES
 (3, 3, 21, 3),
 (1, 1, 22, 1),
 (3, 3, 23, 3),
-(1, 1, 24, 1);
+(1, 1, 24, 1),
+(1, 1, 25, 1);
 
 -- Insert bookings for each passenger into Booking and BookedPassengers tables
 INSERT INTO Booking (b_id, booked_by)
 VALUES
-(1, 50),
+(1, 31),
 (2, 1),
 (3, 1),
-(4, 50),
+(4, 31),
 (5, 1),
 (6, 1),
 (7, 1),
@@ -455,12 +446,13 @@ VALUES
 (21, 1), 
 (22, 1),
 (23, 1), 
-(24, 1);
+(24, 1),
+(25, 31);
 
 -- Distribute passengers across bookings
 INSERT INTO BookedPassengers (b_id, pass_id, r_id)
 VALUES
-(1, 50, 4),
+(1, 31, 4),
 (2, 1, 1),
 (2, 2, 1),
 (2, 3, 1),
@@ -511,7 +503,7 @@ VALUES
 (3, 28, 3),
 (3, 29, 3),
 (3, 30, 3),
-(4, 50, 4),
+(4, 31, 4),
 (5, 1, 1),
 (5, 2, 1),
 (6, 1, 2),
@@ -532,4 +524,5 @@ VALUES
 (21, 1, 3),
 (22, 1, 5),
 (23, 1, 3),
-(24, 1, 5);
+(24, 1, 5),
+(25, 31, 6);
