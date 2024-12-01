@@ -23,4 +23,4 @@ CREATE VIEW GlobalAverage AS (
 
 SELECT pa.c1, pa.c2, pa.avg
 FROM PairAverages pa
-WHERE pa.avg >= 0.25 * (SELECT * FROM GlobalAverage);
+WHERE pa.avg * 4 >= ALL(SELECT * FROM GlobalAverage);
