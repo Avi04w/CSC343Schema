@@ -19,6 +19,7 @@ JOIN Ticket t ON sf.t_id = t.t_id
 WHERE EXTRACT (YEAR FROM f.day) = 2023
 GROUP BY a.a_id, a.name);
 
-SELECT a.a_id AS a_id, a.name AS airport_name, COALESCE(SUM(count), 0) AS total_passengers
+SELECT a.a_id AS a_id, a.name AS airport_name, 
+COALESCE(SUM(count), 0) AS total_passengers
 FROM Airport a LEFT JOIN Traffic t ON t.a_id = a.a_id AND t.name = a.name
 GROUP BY a.a_id, a.name;

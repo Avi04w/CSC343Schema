@@ -151,7 +151,8 @@ VALUES
 (6, 1, 5);
 
 -- Insert flight information into Flight table
-Insert into Flight (f_id, air_id, r_id, p_id, crew_num, day, departure_time, arrival_time)
+Insert into Flight (f_id, air_id, r_id, p_id, crew_num, day,
+ departure_time, arrival_time)
 VALUES
 (1, 1, 4, 1, 2, '2022-01-02', '03:00:00', '18:30:00'),
 (2, 1, 1, 1, 2, '2023-01-15', '08:00:00', '12:00:00'),
@@ -314,7 +315,8 @@ VALUES
 
 
 -- Insert scheduled flight information into ScheduledFlight table
-INSERT INTO ScheduledFlight (f_id, t_id, seat_number, zone, num_baggage, total_weight, g_id)
+INSERT INTO ScheduledFlight (f_id, t_id, seat_number, zone, num_baggage, 
+total_weight, g_id)
 VALUES
 (1, 1, 1, 2, 1, 20, 4),
 (2, 2, 1, 2, 1, 30, 1),

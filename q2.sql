@@ -17,5 +17,6 @@ FROM RouteFrequency
 GROUP BY r_id;
 
 SELECT rf.full_name, rf.r_id, rf.count
-FROM RouteFrequency rf JOIN MaxRoutes mr ON rf.r_id = mr.r_id AND rf.count = mr.max
+FROM RouteFrequency rf JOIN MaxRoutes mr ON rf.r_id = mr.r_id 
+AND rf.count = mr.max
 ORDER BY rf.r_id, rf.full_name;
